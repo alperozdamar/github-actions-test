@@ -1,13 +1,26 @@
 name: Actions Worflow
 
 on:
+  push:
+    branches: 
+      - master  
+      - 'feature/*'  
+      - 'feature/**'
+      - '!feature/featC'
+    tags:
+      - v1.*  
+    # paths:
+    #   - '**.js'
+    paths-ignore:
+      - 'docs/**'
+
   # POST https://api.github.com/repos/alperozdamar/github-actions-test/dispatches 
   # { 
   #     "event_type": "build"
   # }
   #
-  repository_dispatch:
-    types: [build]
+  # repository_dispatch:
+  #   types: [build]
 
   # schedule:
   #   - cron: "0/2 * * * *"  
