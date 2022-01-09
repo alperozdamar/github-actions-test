@@ -1,6 +1,11 @@
 name: Actions Worflow
 
 on:
+  # POST https://api.github.com/repos/alperozdamar/github-actions-test/dispatches 
+  # { 
+  #     "event_type": "build"
+  # }
+  #
   repository_dispatch:
     types: [build]
 
@@ -15,6 +20,8 @@ jobs:
   alper-run-github-actions: 
     runs-on: ubuntu-latest
     steps:
+      - name: payload 
+        run: echo ${{ github.event.client_payload.env}}
       - name: List files
         run: | 
           pwd
